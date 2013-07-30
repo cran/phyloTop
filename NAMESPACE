@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+
+import(grid, graphics, grDevices, stats, utils, ape, phylobase, datasets, methods)
+
