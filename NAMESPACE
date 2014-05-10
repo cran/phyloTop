@@ -1,4 +1,7 @@
 exportPattern("^[[:alpha:]]+")
 
-import(grid, graphics, grDevices, stats, utils, ape, phylobase, datasets, methods)
+import(grid, graphics, grDevices, phylobase, datasets,NHPoisson)
 
+importFrom(ape,rtree)
+importFrom(igraph,graph)
+importFrom(igraph,graph.dfs)

@@ -5,12 +5,13 @@
 \alias{dists}
 \alias{ladderNums}
 \alias{treeImb}
+\alias{nodeApply}
 
 \title{
 All Node Analysis
 }
 \description{
-A collection of functions designed to examine all of the nodes in a tree at once. Note that not all of these functions return tolological properties of the trees - two trees could be topologically identical but give different results. Many of the functions below gives results organized by \code{nodeId}.
+A collection of functions designed to examine all of the nodes in a tree at once. Note that not all of these functions return tolological properties of the trees - two trees could be topologically identical but give different results. Many of the functions below gives results organized by \code{nodeId}. 
 }
 \usage{
 nDescendants(tree)
@@ -18,11 +19,18 @@ nTipDescendants(tree)
 dists(tree)
 ladderNums(tree)
 treeImb(tree)
+nodeApply(tree,func,showId = TRUE)
 }
 
 \arguments{
 \item{tree}{
 An object of class \code{phylo4}
+}
+\item{func}{
+A function with input being a binary phylogenetic tree and output being a number
+}
+\item{showId}{
+A Boolean
 }
 }
 \details{
@@ -35,6 +43,8 @@ An object of class \code{phylo4}
 \code{ladderNums} gives the largest ladder size (away from the root) starting from the given node. It is based on \code{rootLaddDist}. Note that it returns a vector of length equal to the number of internal nodes of the tree. Organized by \code{nodeId}. \code{laddItr} is intended to be applied to this result of this function.
 
 \code{treeImb} gives the node imbalance of every internal node in the tree using \code{nodeImb}. The output ordered by \code{nodeId}.
+
+\code{nodeApply} applies the a given function to all the non-trivial subtrees within the given tree. That is, for every internal node there is a tree - the tree descending from that node. \code{nodeApply} applies \code{func} to all of these trees. The output is ordered by \code{nodeId} and if \code{showId=TRUE} then the name of the output is set to show the \code{nodeId} of the node corresponding to each subtree.
 }
 \value{
 \item{nDescendants}{
@@ -49,14 +59,18 @@ A numeric vector of length equal to the number of internal nodes of the tree. Al
 \item{treeImb}{
 A matrix with two rows and number of columns equal to the number of internal nodes of the tree.
 }
+\item{nodeApply}{
+A numeric vector of length equal to the number of internal nodes. If \code{showId=TRUE}, then the vector is named.
+}
 }
 \author{
 Michael Boyd
 }
 \seealso{
-\code{\link{nodeId}}, \code{\link{rootLaddDist}}.
+\code{\link{nodeId}}, \code{\link{rootLaddDist}}. See \code{\link{treeAnalysis}} for more examples to use in \code{func}.
 }
 \examples{
+\dontrun{
 ## Creates a random tree of class phylo4
 tree <- rtree4(50)
 
@@ -78,4 +92,9 @@ ladderNums(tree)
 
 ## Calculates the imbalance of each of the internal nodes
 treeImb(tree)
+
+## This returns the Colless imbalance of all subtrees of the tree
+## The vector is named by the nodeId of the root of each subtree
+nodeApply(tree,colless)
+}
 }

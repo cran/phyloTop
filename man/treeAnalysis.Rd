@@ -6,7 +6,13 @@
 \alias{avgLadder}
 \alias{nLadders}
 \alias{colless}
+\alias{nodeFrac}
 \alias{topSumm}
+\alias{cherries}
+\alias{pitchforks}
+\alias{maxheight}
+\alias{stairs}
+\alias{ILnumber}
 
 \title{
 Tree Analysis Functions
@@ -21,7 +27,13 @@ widths(tree)
 avgLadder(tree)
 nLadders(tree)
 colless(tree,normalize=TRUE)
+nodeFrac(tree,func,threshold)
 topSumm(tree,topList)
+cherries(tree)
+pitchforks(tree)
+maxheight(tree)
+stairs(tree)
+ILnumber(tree)
 }
 
 \arguments{
@@ -33,6 +45,12 @@ An integer specifying the distance at which to do the splitting
 }
 \item{normalize}{
 A boolean specifying whether to normalize the Colless Imbalance
+}
+\item{func}{
+A function with input being a phylogenetic tree and output being a number.
+}
+\item{threshold}{
+A number.
 }
 \item{topList}{
 This is a list of functions. Each function in the list acts on an object of class \code{phylo4} and returns a number - which is intended to be a topological property of the tree. 
@@ -51,7 +69,19 @@ This is a list of functions. Each function in the list acts on an object of clas
 
 \code{colless} returns the normalised Colless Imblanace. That is the sum of all the node imbalances divided by \emph{2/((n-1)(n-2))} where \emph{n} is the number of tips. See \code{nodeImb} for the calculation of the imblalance for particular nodes. There is also an option to return the unnormalized Colless Imbalance.
 
+\code{nodeFrac} returns the fraction of nodes for which \code{func(subtree)>=threshold} where \code{subtree} is the subtree descending from that node.
+
 \code{topSumm} returns the result of each of the functions in \code{topList} on the specified tree. Similar functions (mostly applied to many trees or a model for generating trees) can be found in \code{modelSummary}.
+
+\code{cherries} returns the number of cherries in the tree. A cherry is a node with two tip descendants.
+
+\code{pitchforks} returns the number of pitchforks in the tree. A pitchfork is a node with one cherry descendant and one tip descendant.
+
+\code{maxheight} returns the maximum height (discrete steps from the root, not taking branch length into account, or equivalently with branch lengths equal to 1) of any tip in the tree. 
+
+\code{stairs} returns a vector containing two measures of "staircase-ness" suggested by Norstrom et al (2012) in Evol. Bioinf. Online. See also the PhyloTempo package. 
+
+\code{ILnumber} returns the number of nodes with a single tip descendant in the tree.
 }
 
 \value{
@@ -62,7 +92,7 @@ An integer vector of length equal to the number of nodes of the tree of the give
 A numeric vector of length one giving the sum of the distance of each of the tips from the root.
 }
 \item{widths}{
-An integer vector of length equal to the largest distnace of a tip to the root.
+An integer vector of length equal to the largest distance of a tip to the root.
 }
 \item{avgLadder}{
 A number.
@@ -73,18 +103,41 @@ A number.
 \item{colless}{
 A number.
 }
+\item{nodeFrac}{
+A number.
+}
+\item{topSumm}{
+A numeric vector of the same length as \code{topList}.
+}
+\item{cherries}{
+	A number.
+}
+\item{pitchforks}{
+	A number.
+}
+\item{maxheight}{
+	A number.
+}
+\item{stairs}{
+	A vector whose first element is the average, over all internal nodes, of the absolute difference between the numbers of tips on the two edges descending from the node. The second element is the average of (number of tips in the smaller descending subtree)/(number of tips in the larger descending subtree).
+}
+\item{ILnumber}{
+	A number.
+}
 }
 \author{
-Michael Boyd
+Michael Boyd, Caroline Colijn
 }
 \seealso{
-\code{\link{modelSummary}} for functions to produce data frames containing the results of several of these functions on many trees.
+\code{\link{modelSummary}} for functions to produce data frames containing the results of several of these functions on many trees. There are also examples of \code{topSumm} in the examples there.
 
 \code{\link{allNodeAnalysis}} for more functions which give results about every node in the tree. 
 
 \code{\link{configurations}} for functions examining configurations in a tree. A cherry is a type of congiguration (it is a 2-configuration).
 
 \code{\link{ladderShow}} for a function which plots the tree highlighting the ladders.
+
+\code{\link{nodeApply}} for a function related to \code{nodeFrac}.
 
 \code{\link{nodeImb}}, \code{\link{dists}} and \code{\link{laddItr}}. 
 }
@@ -93,7 +146,7 @@ Michael Boyd
 tree <- rtree4(50)
 tree <- idNodeLabel(tree)
 plot(tree,show.tip.label=FALSE,show.node.label=TRUE)
-
+\dontrun{
 ## Finds the split topology of the fourth level
 splitTop(tree,4)
 
@@ -111,4 +164,8 @@ nLadders(tree)
 
 ## Finds the Colless Imbalance (normalized)
 colless(tree)
+
+## Finds the fraction of nodes for which colless(subtree of node) >= 0.25
+nodeFrac(tree,colless,0.25)
+}
 }

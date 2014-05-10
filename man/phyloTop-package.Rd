@@ -12,8 +12,8 @@ Calculates some topological properties of phylogenetic trees.
 \tabular{ll}{
 Package: \tab phyloTop\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2013-07-30\cr
+Version: \tab 1.1\cr
+Date: \tab 2013-10-05\cr
 License: \tab GPL-2\cr
 }
 This package is based on the package \code{phylobase}. See its documentation for many useful related functions. In particular \code{nodeId} and \code{treewalk}. \code{library(help=phyloTop)} will give more information on the package. 

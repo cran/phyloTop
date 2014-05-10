@@ -26,7 +26,7 @@ This is a list of functions. Each function in the list acts on an object of clas
 An integer specifying the number of trees create.
 }
 \item{loadingBar}{
-A boolean. If true, it results in the number trees evaluated so far being printed as each tree is evaluated. This gives some indication of how long the function will take.
+A Boolean. If true, it results in the number trees evaluated so far being printed as each tree is evaluated. This gives some indication of how long the function will take.
 }
 \item{treeList}{
 A list where the elements of the list are cobjects of class \code{phylo4}.
