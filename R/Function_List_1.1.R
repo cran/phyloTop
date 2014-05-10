@@ -65,13 +65,13 @@ maxheight<-function(tree){
 	alldepths<-apply(as.matrix(seq(1:nTips(tree))),1,function(x,tree) nodeDepth(tree,x), tree)
 	return(max(alldepths))
 }
-
-stairs <- function(tree) {
-    N <- nTips(tree)
-    NDs <- treeImb(tree)[,(N+1):(2*N-1)]
-    stair1 <- (1/(N-1))*sum(abs(NDs[2,]-NDs[1,]))
-    stair2 <- (1/(N-1))*sum(min(NDs[2,],NDs[1,])/max(NDs[2,],NDs[1,]))
-    return(c(stair1,stair2))
+stairs <- function (tree) 
+{
+  N <- nTips(tree)
+  NDs <- treeImb(tree)[, (N + 1):(2 * N - 1)]
+  stair1 <- (1/(N - 1)) * sum(abs(NDs[2, ] - NDs[1, ]))
+  stair2 <- (1/(N - 1)) * sum(pmin(NDs[2, ], NDs[1, ])/pmax(NDs[2, ], NDs[1, ]))
+  return(c(stair1, stair2))
 }
 ILnumber <- function(tree) {
 N <- nTips(tree)
