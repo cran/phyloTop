@@ -1,14 +1,20 @@
 Package: phyloTop
-Version: 1.1.1
-Type: Package
-Title: Phylogenetic Tree Topological Properties Evaluator
-Date: 2014-05-10
-Author: Michael Boyd and Caroline Colijn
-Maintainer: Michael Boyd <mboyd855@gmail.com>
-Description: Calculates some topological properties of phylogenetic trees
+Title: Calculating Topological Properties of Phylogenies
+Version: 2.0.0
+Authors@R: c(MK=person("Michelle", "Kendall", email="m.kendall@imperial.ac.uk", role = c("aut", "cre")),
+      MB=person("Michael", "Boyd", email="mboyd855@gmail.com", role = c("aut")),
+	    CC=person("Caroline", "Colijn", role = c("aut")))
+Maintainer: Michelle Kendall <m.kendall@imperial.ac.uk>
+Description: Tools for calculating and viewing topological properties of phylogenetic trees.
 License: GPL-2
-Depends: phylobase, NHPoisson, ape, igraph
-Packaged: 2014-05-13 20:20:56 UTC; Michael
+Depends: R (>= 3.2.2), ape
+Imports: igraph, methods, NHPoisson, phylobase
+Suggests: testthat
+RoxygenNote: 5.0.1
 NeedsCompilation: no
+Packaged: 2016-04-14 15:49:01 UTC; Michelle
+Author: Michelle Kendall [aut, cre],
+  Michael Boyd [aut],
+  Caroline Colijn [aut]
 Repository: CRAN
-Date/Publication: 2014-05-14 02:48:06
+Date/Publication: 2016-04-14 18:11:08
