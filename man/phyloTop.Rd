@@ -37,10 +37,9 @@ phyloTop(rmtree(10,50), normalise=TRUE)
 
 
 }
-\author{
-Michelle Kendall \email{michelle.louise.kendall@gmail.com}
-}
 \seealso{
 \code{\link{avgLadder}}, \code{\link{cherries}}, \code{\link{colless.phylo}}, \code{\link{ILnumber}}, \code{\link{maxHeight}}, \code{\link{pitchforks}}, \code{\link{sackin.phylo}}, \code{\link{stairs}}
 }
-
+\author{
+Michelle Kendall \email{michelle.louise.kendall@gmail.com}
+}

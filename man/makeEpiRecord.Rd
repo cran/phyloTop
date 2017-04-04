@@ -24,12 +24,11 @@ Create an epidemiological record of infectors and infectees with corresponding i
 myepirecord <- makeEpiRecord(c(1,2,3,4), duration=2, NumCases=100)
 
 }
+\seealso{
+\code{\link{getLabGenealogy}}
+}
 \author{
 Caroline Colijn \email{c.colijn@imperial.ac.uk}
 
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 }
-\seealso{
-\code{\link{getLabGenealogy}}
-}
-

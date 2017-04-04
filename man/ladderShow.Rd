@@ -33,12 +33,11 @@ ladderSizes(tree)
 
 
 }
+\seealso{
+\code{\link{ladderSizes}}
+}
 \author{
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 
 Michael Boyd \email{mboyd855@gmail.com}
 }
-\seealso{
-\code{\link{ladderSizes}}
-}
-

@@ -42,4 +42,3 @@ subtreeShow(tree,nodeList=c(23,35), mainCol="navy", subtreeCol="cyan",
 \author{
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 }
-

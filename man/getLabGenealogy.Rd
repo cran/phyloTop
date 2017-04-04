@@ -25,12 +25,11 @@ mygenealogy <- getLabGenealogy(myepirecord)
 plot(mygenealogy)
 
 }
+\seealso{
+\code{\link{makeEpiRecord}}
+}
 \author{
 Caroline Colijn \email{c.colijn@imperial.ac.uk}
 
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 }
-\seealso{
-\code{\link{makeEpiRecord}}
-}
-

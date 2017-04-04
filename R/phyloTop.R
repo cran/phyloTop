@@ -74,6 +74,9 @@ phyloTop <- function(treeList,funcs="all", normalise=FALSE){
   
   # go through each tree at a time
   for (i in 1:length(treeList)) {
+    
+    treeList[[i]] <- phyloCheck(treeList[[i]])
+    
     ntips <- length(treeList[[i]]$tip.label)
     
     # get the functions which are reused

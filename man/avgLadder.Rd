@@ -27,10 +27,9 @@ avgLadder(tree, normalise=TRUE)
 
 
 }
-\author{
-Michelle Kendall \email{michelle.louise.kendall@gmail.com}
-}
 \seealso{
 \code{\link{ladderSizes}}
 }
-
+\author{
+Michelle Kendall \email{michelle.louise.kendall@gmail.com}
+}

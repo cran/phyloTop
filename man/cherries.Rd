@@ -30,10 +30,9 @@ configShow(tree, 2, edge.width=2)
 
 
 }
-\author{
-Michelle Kendall \email{michelle.louise.kendall@gmail.com}
-}
 \seealso{
 \code{\link{configShow}}
 }
-
+\author{
+Michelle Kendall \email{michelle.louise.kendall@gmail.com}
+}

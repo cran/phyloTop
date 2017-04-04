@@ -126,4 +126,4 @@ subtreeShow(rtree(20),nodeList=c(23,35), mainCol="navy", subtreeCol="cyan", node
 
 Example output:
 
-![example plot of subtreeShow](vignettes/figs/subtreeShowExample.png)
+![example plot of subtreeShow](inst/doc/subtreeShowExample.png)

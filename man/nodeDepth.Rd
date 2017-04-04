@@ -30,4 +30,3 @@ nodeDepth(tree,34)
 \author{
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 }
-

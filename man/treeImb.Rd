@@ -24,10 +24,9 @@ nodelabels()
 treeImb(tree)
 
 }
-\author{
-Michelle Kendall \email{michelle.louise.kendall@gmail.com}
-}
 \seealso{
 \code{\link{nodeImb}}
 }
-
+\author{
+Michelle Kendall \email{michelle.louise.kendall@gmail.com}
+}
