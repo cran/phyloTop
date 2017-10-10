@@ -17,6 +17,7 @@ Determines the depth of each node, defined as the number of steps from the root.
 (So the root has depth zero, its children have depth one, etc.)
 The output is given as a list of two vectors: \code{tipDepths} gives the depths of the tips, and \code{nodeDepths} gives the depths of the internal nodes.
 This replaces the deprecated \code{dists} function.
+The code is based on that used in the function \code{computeHeights} in package \code{treeCentrality}.
 }
 \examples{
 ## Find the node depths in a random tree:
@@ -33,7 +34,5 @@ plot(tree, show.node.label=TRUE)
 \code{\link{nodeDepth}}, \code{\link{nodeDepthFrac}}
 }
 \author{
-Caroline Colijn \email{c.colijn@imperial.ac.uk}
-
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 }

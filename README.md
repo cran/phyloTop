@@ -1,4 +1,6 @@
 [![Travis-CI Build Status](https://travis-ci.org/MichelleKendall/phyloTop.png?branch=master)](https://travis-ci.org/MichelleKendall/phyloTop)
+[![CRAN Status Badge](http://www.r-pkg.org/badges/version/phyloTop)](https://cran.r-project.org/package=phyloTop)
+[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/phyloTop)](http://cran.rstudio.com/web/packages/phyloTop/index.html)
 
 *phyloTop*: Calculating Topological Properties of Phylogenies
 ========

@@ -28,6 +28,10 @@
 #' @export
 cherries<-function(tree, normalise=FALSE) {
   tree <- phyloCheck(tree)
-  if (normalise==FALSE) {return(nConfig(tree)$numClades[[2]])}
-  else {return(2*nConfig(tree)$numClades[[2]]/length(tree$tip.label))}
+  ntips <- length(tree$tip.label)
+  if (ntips == 2) {return(1)}
+  else {
+    if (normalise==FALSE) {return(nConfig(tree)$numClades[[2]])}
+    else {return(2*nConfig(tree)$numClades[[2]]/ntips)}
+  }
 }

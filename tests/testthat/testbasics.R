@@ -9,7 +9,7 @@ library(ape)
 trees <- rmtree(3,50) # three random trees on 50 tips
 tree1 <- trees[[1]] # extract first tree
 p <- phyloTop(trees)[1,] # extract first row of phyloTop output
-pn <- phyloTop(trees, normalise=TRUE)[1,] # extract first row of phyloTop output
+pn <- phyloTop(trees, normalise=TRUE)[1,] # extract first row of normalised phyloTop output
 
 ############################
 # test that individual functions give same result as main phyloTop function
@@ -24,7 +24,7 @@ test_that("cherries function gives same result as second column of phyloTop func
 })
 
 test_that("colless.phylo function gives same result as third column of phyloTop function", {
-  expect_equal(colless.phylo(tree1),p[[3]])
+  expect_equal(colless.phylo(tree1, normalise=FALSE),p[[3]])
 })
 
 test_that("ILnumber function gives same result as fourth column of phyloTop function", {

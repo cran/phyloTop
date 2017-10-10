@@ -86,25 +86,7 @@ phyloTop <- function(treeList,funcs="all", normalise=FALSE){
       
       nConfig <- nConfig(treeList[[i]])
       
-      # and find treeImb without recalling nConfig:
-      
-      nn=treeList[[i]]$Nnode
-      Ancs=(ntips+1):(ntips+nn) 
-      
-      # for each internal node, find its immediate children 
-      Pointers=t(vapply(Ancs, function(x) treeList[[i]]$edge[treeList[[i]]$edge[,1]==x,2], FUN.VALUE=c(1,2))) 
-      
-      configs <- nConfig$cladeSizes
-      imbalance <- t(sapply(c(1:ntips,Ancs), function(node) {
-        if (node <= ntips) {return(c(0,0))}
-        else {
-          children <- Pointers[node-ntips,]
-          left <- configs[[children[[1]]]]
-          right <- configs[[children[[2]]]]
-          return(c(left,right))
-        }
-      }))
-      treeImb <- imbalance}
+      treeImb <- treeImb(treeList[[i]])}
     
     
     # apply each function
@@ -126,13 +108,14 @@ phyloTop <- function(treeList,funcs="all", normalise=FALSE){
       }
       
       else if (j=="colless.phylo") { if (ntips==2) {treeSummaries[i,j] <- 0 }
-                                else { diffs <- abs(apply(treeImb,1,diff))
-                                n <- ((ntips-1)*(ntips-2))/2
-                                treeSummaries[i,j] <- sum(diffs)/n
+                                else { diffs <- sum(abs(treeImb[(ntips+1):(2*ntips-1),1]-treeImb[(ntips+1):(2*ntips-1),2]))
+                                if (normalise==FALSE) {n <- 1}
+                                else {n <- ((ntips-1)*(ntips-2))/2}
+                                treeSummaries[i,j] <- diffs/n
                                 }
         }
       else if (j=="ILnumber") {
-        if (ntips==2) {treeSummaries[i,j] <- 0} # if N=2 the result is 0 (and we should not try to normalise it!)
+        if (ntips==2) {treeSummaries[i,j] <- 0} # if ntips=2 the result is 0 (and we should not try to normalise it!)
         else {NDs <- treeImb[(ntips+1):(2*ntips-1),]
               if (normalise==FALSE) {treeSummaries[i,j] <- sum(apply(NDs,1, function(x) sum(x==1)==1))}
               else {treeSummaries[i,j] <- (sum(apply(NDs,1, function(x) sum(x==1)==1)))/(ntips-2)}
@@ -151,7 +134,7 @@ phyloTop <- function(treeList,funcs="all", normalise=FALSE){
         else {treeSummaries[i,j] <- 3*nConfig$numClades[[3]]/ntips}
       }
       
-      else if (j=="sackin.phylo") {tipDepths <- depths$tipDepths - 1
+      else if (j=="sackin.phylo") {tipDepths <- depths$tipDepths
                                     if (normalise==FALSE) {
                                       treeSummaries[i,j] <- sum(tipDepths)}
                                     else {treeSummaries[i,j] <- (sum(tipDepths))/((1/2)*(ntips*(ntips+1)) - 1)}
@@ -163,11 +146,13 @@ phyloTop <- function(treeList,funcs="all", normalise=FALSE){
           treeSummaries[i, "stairs1"] <- 0
           treeSummaries[i, "stairs2"] <- 1
         }
-        else {NDs <- treeImb[(ntips + 1):(2 * ntips - 1),]
-              stair1 <- (1/(ntips - 1)) * sum(abs(NDs[2, ] - NDs[1, ]))
-              stair2 <- (1/(ntips - 1)) * sum(pmin(NDs[2, ], NDs[1, ])/pmax(NDs[2, ], NDs[1, ]))
-              treeSummaries[i,"stairs1"] <- stair1
-              treeSummaries[i,"stairs2"] <- stair2
+        else {
+          tImb <- treeImb[(ntips+1):(2*ntips-1),]
+          stair1 <- (1/(ntips - 1)) * sum(tImb[,1] != tImb[,2]) 
+          stair2 <- (1/(ntips - 1)) * sum(pmin(tImb[,2], tImb[,1])/pmax(tImb[,2], tImb[,1]))
+          
+          treeSummaries[i,"stairs1"] <- stair1
+          treeSummaries[i,"stairs2"] <- stair2
         }
       }
     }

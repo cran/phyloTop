@@ -1,7 +1,7 @@
 #' Number of pitchforks
 #' 
 #' Finds the number of pitchforks in a tree. A pitchfork is considered to be a clade with three tips.
-#' 
+#'  
 #' @author Michelle Kendall \email{michelle.louise.kendall@@gmail.com}
 #'     
 #' @param tree a tree of class \code{phylo} or \code{phylo4}. The tree should be binary and rooted; if not it will be coerced into a binary rooted tree using multi2di, if possible.
@@ -29,7 +29,9 @@
 pitchforks<-function(tree, normalise=FALSE) {
   tree <- phyloCheck(tree)
   ntips <- length(tree$tip.label)
-  if (ntips==2) {return(0)}
-  if (normalise==FALSE) {return(nConfig(tree)$numClades[[3]])}
-  else {return(3*nConfig(tree)$numClades[[3]]/ntips)}
+  if (ntips == 2) {return(0)}
+  else {
+    if (normalise==FALSE) {return(nConfig(tree)$numClades[[3]])}
+    else {return(3*nConfig(tree)$numClades[[3]]/ntips)}
+  }
 }

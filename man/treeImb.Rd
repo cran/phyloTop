@@ -14,7 +14,7 @@ A matrix where rows correspond to nodes of the tree. The two column entries corr
 Where the row number corresponds to a tip, the entries are (0,0).
 }
 \description{
-Find the imbalance of each node, that is the number of tip descendants of each of its two children.
+Find the imbalance of each node, that is the number of tip descendants of each of its two children. With thanks to Leonid Chindelevitch for use of code from \code{computeLRValues} from \code{treeCentrality}.
 }
 \examples{
 ## Find the imbalance numbers in a random tree with 10 tips:

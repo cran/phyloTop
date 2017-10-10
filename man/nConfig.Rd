@@ -9,13 +9,12 @@ nConfig(tree, maxClade = NULL)
 \arguments{
 \item{tree}{a tree of class \code{phylo} or \code{phylo4}. The tree should be binary and rooted; if not it will be coerced into a binary rooted tree using multi2di, if possible.}
 
-\item{maxClade}{An integer between 1 and the number of tips (the default), specifying the maximum clade size of interest.}
+\item{maxClade}{an integer between 1 and the number of tips (the default), specifying the maximum clade size of interest.}
 }
 \value{
 A list with 2 entries: 
 \itemize{
-\item cladeSizes is a vector giving the size of the clade descending at each node. Tips all have the value 1. 
-Internal nodes have their number of tip descendants. 
+\item cladeSizes is a vector giving the size of the clade descending at each node:tips all have the value 1, internal nodes have their number of tip descendants. 
 \item numClades is a vector where numClades[[i]] is the number of clades of size i in the tree. 
 All clade sizes are calculated, but the output can be restricted using \code{maxClade} to just those of size up to 'maxClade'.
 }
@@ -33,7 +32,5 @@ nConfig(tree)
 
 }
 \author{
-Caroline Colijn \email{c.colijn@imperial.ac.uk}
-
 Michelle Kendall \email{michelle.louise.kendall@gmail.com}
 }

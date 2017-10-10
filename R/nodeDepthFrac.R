@@ -25,13 +25,11 @@ nodeDepthFrac <- function(tree,threshold) {
   # initial tree check
   tree <- phyloCheck(tree)
   
-  Ntips <- length(tree$tip.label) # number of tips
-  nodes <- 1:(Ntips+tree$Nnode) # node numbers
+  ntips <- length(tree$tip.label) # number of tips
+
+  depths <- getDepths(tree)
+  alldepths <- c(depths$tipDepths,depths$nodeDepths)
+  count <- sum(alldepths >= threshold)
   
-  count <- 0
-  for (i in nodes) {
-    tmp <- nodeDepth(tree,i)
-    if (tmp>=threshold) {count <- count+1}
-  }
-  return(count/length(nodes))
+  return(count/(2*ntips - 1))
 }

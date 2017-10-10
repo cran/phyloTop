@@ -25,7 +25,7 @@
 #' @export
 sackin.phylo <- function(tree,normalise=FALSE) {
   depths <- getDepths(tree)
-  tipDepths <- depths$tipDepths - 1
+  tipDepths <- depths$tipDepths
   if (normalise==FALSE){
   return(sum(tipDepths))
   }

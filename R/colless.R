@@ -22,13 +22,19 @@
 #' 
 #' @export
 colless.phylo <- function(tree,normalise=TRUE) {
+  # checks:
+  tree <- phyloCheck(tree)
   ntips <- length(tree$tip.label)
   if (ntips==2) {return(0)}
-  tImb <- treeImb(tree)
-  diffs <- abs(apply(tImb,1,diff))
+  
+  tImb <- treeImb(tree) # find the tree imbalance
+  
+  diffs <- sum(abs(tImb[(ntips+1):(2*ntips-1),1]-tImb[(ntips+1):(2*ntips-1),2])) # abs value of the difference in each row of tImb
+  
   if (normalise) {
     n <- ((ntips-1)*(ntips-2))/2
-    return(sum(diffs)/n)
+    return(diffs/n)
   }
-  return(sum(diffs))
+  
+  return(diffs)
 }

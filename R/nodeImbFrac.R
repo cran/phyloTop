@@ -25,14 +25,12 @@ nodeImbFrac <- function(tree,threshold) {
   # initial tree check
   tree <- phyloCheck(tree)
   
-  Ntips <- length(tree$tip.label) # number of tips
-  intNodes <- (Ntips+1):(Ntips+tree$Nnode) # internal node numbers
+  ntips <- length(tree$tip.label) # number of tips
+  tImb <- treeImb(tree)
   
-  count <- 0
-  for (i in intNodes) {
-    tmp <- nodeImb(tree,i)
-    diff <- abs(tmp[[1]]-tmp[[2]])
-    if (diff>=threshold) {count <- count+1}
-  }
-  return(count/length(intNodes))
+  tImb <- tImb[(ntips+1):(2*ntips - 1),]
+  
+  count <- sum(abs(tImb[,1]-tImb[,2]) >= threshold)
+  
+  return(count/(ntips-1))
 }
