@@ -1,4 +1,4 @@
-8868482c1cc7dea02de05f070a63ebea *DESCRIPTION
+384ffc3f17550d53b7ec4767275c2034 *DESCRIPTION
 d95cdb2a5aeff2175f9f22adb4be4c63 *NAMESPACE
 f8518a4e54fecade0cb454fe4e07fa6f *NEWS.md
 83967a55b3af2f40dc3c3b0b31477632 *R/ILnumber.R
@@ -30,7 +30,7 @@ d580c854b9b2fe0393cc7ca30883c34f *R/pitchforks.R
 a9e5f9f92156dc9d64ed98f1c6add71b *R/treeImb.R
 81097350ccc5ca537c46eca5070b2f9d *R/widths.R
 a289c3f48353e589b3ba5916ee966fdb *README.md
-7b58f3e90a3524d4c44573f8dd69d40c *build/partial.rdb
+867fb4aed0de79556010229c398abee7 *build/partial.rdb
 8c9ceef69f91e75aac1d55e0f488f319 *inst/doc/subtreeShowExample.png
 d52d5c944812364588e5d484f1cff3db *man/ILnumber.Rd
 485d62916e9823b8ae9eb7e3d74d5892 *man/avgLadder.Rd
