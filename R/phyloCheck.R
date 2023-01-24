@@ -12,21 +12,22 @@
 #' 
 #' @import ape
 #' @importFrom methods as
+#' @importFrom methods is
 #' 
 #' @keywords internal
 #' 
 #' @export
 phyloCheck <- function(tree) {
   # check input class
-  if (class(tree)=="phylo4") {tree <- as(tree, "phylo")}
-  else if (class(tree) != "phylo") {stop("Input of class phylo or phylo4 expected.")}
+  if (is(tree, "phylo4")) {tree <- as(tree, "phylo") }
+  else if (!is(tree, "phylo")) {stop("Input of class phylo or phylo4 expected.")}
   
   # check if the tree is binary and rooted; if not, do multi2di with a warning
-  if(!is.binary.tree(tree)||!is.rooted(tree)) {
+  if(!is.binary(tree)||!is.rooted(tree)) {
     warning("A binary, rooted tree is expected. Applying multi2di to the supplied tree.") 
     tree <- multi2di(tree, random=FALSE)
     # check if it worked (sometimes it can't manage it!)
-    if(!is.binary.tree(tree)||!is.rooted(tree)) {stop("Unable to coerce the tree to be binary and rooted.")}
+    if(!is.binary(tree)||!is.rooted(tree)) {stop("Unable to coerce the tree to be binary and rooted.")}
   }
   return(tree)
 }

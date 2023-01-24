@@ -1,21 +1,24 @@
 Package: phyloTop
 Title: Calculating Topological Properties of Phylogenies
-Date: 2018-02-21
-Version: 2.1.1
-Authors@R: c(MK=person("Michelle", "Kendall", email="michelle.kendall@bdi.ox.ac.uk", role = c("aut", "cre")),
+Date: 2023-01-24
+Version: 2.1.2
+Authors@R: c(MK=person("Michelle", "Kendall", email="michelle.kendall@warwick.ac.uk", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-7344-7071")),
       MB=person("Michael", "Boyd", email="mboyd855@gmail.com", role = c("aut")),
 	    CC=person("Caroline", "Colijn", role = c("aut")))
-Maintainer: Michelle Kendall <michelle.kendall@bdi.ox.ac.uk>
 Description: Tools for calculating and viewing topological properties of phylogenetic trees.
 License: GPL-2
+Encoding: UTF-8
 Depends: R (>= 3.2.2), ape
 Imports: igraph, methods, NHPoisson, phylobase
 Suggests: testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 7.2.3
+URL: https://michellekendall.github.io/phyloTop/,
+        https://github.com/MichelleKendall/phyloTop
 NeedsCompilation: no
-Packaged: 2018-02-21 15:59:47 UTC; Michelle
-Author: Michelle Kendall [aut, cre],
+Packaged: 2023-01-24 11:43:43 UTC; michellekendall
+Author: Michelle Kendall [aut, cre] (<https://orcid.org/0000-0001-7344-7071>),
   Michael Boyd [aut],
   Caroline Colijn [aut]
+Maintainer: Michelle Kendall <michelle.kendall@warwick.ac.uk>
 Repository: CRAN
-Date/Publication: 2018-02-21 18:18:02 UTC
+Date/Publication: 2023-01-24 15:20:02 UTC

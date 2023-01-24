@@ -1,7 +1,13 @@
+phyloTop v2.1.2
+===============
+
+We are grateful to Orlando Schwery for bringing to our attention that 'is.binary.tree()' from ape is deprecated and was issuing a warning whenever phyloCheck was called. We have now changed it to the supported 'is.binary()'. 
+
+
 phyloTop v2.1.0
 ===============
 
-We are very grateful to Leonid Chindelevitch for his comments which have led to this significantly improved version of phyloTop: most of the functions are now calculated in linear time and We have fixed errors in the calculation of the sackin and stairs measures. 
+We are very grateful to Leonid Chindelevitch for his comments which have led to this significantly improved version of phyloTop: most of the functions are now calculated in linear time and we have fixed errors in the calculation of the Sackin and stairs measures. 
 
 
 phyloTop v2.0.0

@@ -4,8 +4,15 @@
 \alias{subtreeShow}
 \title{Highlight a subtree}
 \usage{
-subtreeShow(tree, nodeList, showNodeLabels = "nodeList", mainCol = "black",
-  subtreeCol = "red", nodeLabelCol = "lightblue", ...)
+subtreeShow(
+  tree,
+  nodeList,
+  showNodeLabels = "nodeList",
+  mainCol = "black",
+  subtreeCol = "red",
+  nodeLabelCol = "lightblue",
+  ...
+)
 }
 \arguments{
 \item{tree}{a tree of class \code{phylo} or \code{phylo4}. The tree should be binary and rooted; if not it will be coerced into a binary rooted tree using multi2di, if possible.}
