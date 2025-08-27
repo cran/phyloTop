@@ -1,3 +1,9 @@
+phyloTop v2.1.3
+==================
+
+Patch to update the format of cross-references to other packages in Rd files as required by new CRAN standards. Change of maintainer's email address.
+
+
 phyloTop v2.1.2
 ===============
 

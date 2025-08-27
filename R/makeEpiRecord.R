@@ -5,7 +5,7 @@
 #' @author Caroline Colijn \email{c.colijn@imperial.ac.uk}
 #' @author Michelle Kendall \email{michelle.louise.kendall@@gmail.com}
 #'   
-#' @param lambda a numeric vector specifying the time varying intensity lambda(t) which is passed to \code{\link{simNHP.fun}} to generate the non-homogeneous Poisson process.
+#' @param lambda a numeric vector specifying the time varying intensity lambda(t) which is passed to \code{\link[NHPoisson]{simNHP.fun}} to generate the non-homogeneous Poisson process.
 #' @param duration the fixed duration of infection (default is 1)
 #' @param NumCases the approximate number of infected cases (default is 50)
 #'

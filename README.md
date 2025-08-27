@@ -1,5 +1,5 @@
 [![Travis-CI Build
-Status](https://travis-ci.org/MichelleKendall/phyloTop.png?branch=master)](https://travis-ci.org/MichelleKendall/phyloTop)
+Status](https://travis-ci.org/MichelleKendall/phyloTop.png?branch=master)](https://app.travis-ci.com/MichelleKendall/phyloTop)
 [![CRAN Status
 Badge](http://www.r-pkg.org/badges/version/phyloTop)](https://cran.r-project.org/package=phyloTop)
 [![CRAN
@@ -138,7 +138,7 @@ descending from nodes 25 and 33:
 
     subtreeShow(rtree(20),nodeList=c(25,33), mainCol="navy", subtreeCol="cyan", nodeLabelCol="cyan", edge.width=2)
 
-![](docs/figs/subtreeShow_example-1.png)
+![](man/figures/subtreeShow_example-1.png)
 
 ## Contributing / asking a question
 

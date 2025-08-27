@@ -7,7 +7,7 @@
 makeEpiRecord(lambda, duration = 1, NumCases = 50)
 }
 \arguments{
-\item{lambda}{a numeric vector specifying the time varying intensity lambda(t) which is passed to \code{\link{simNHP.fun}} to generate the non-homogeneous Poisson process.}
+\item{lambda}{a numeric vector specifying the time varying intensity lambda(t) which is passed to \code{\link[NHPoisson]{simNHP.fun}} to generate the non-homogeneous Poisson process.}
 
 \item{duration}{the fixed duration of infection (default is 1)}
 
